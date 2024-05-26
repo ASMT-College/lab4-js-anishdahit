@@ -18,6 +18,8 @@ function seterror(id, error){
 
 
 function validateForm(){
+    const nameRegex = /^[a-zA-Z ]{5,20}$/;
+    const phoneRegex = /^[]0-9]{10}$/
     const emailRegex = /^[A-Za-z0-9 ]+@[a-zA-z]+.[a-zA-z]{2,3}$/;
     const pwRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
     var returnval = true;
@@ -25,13 +27,8 @@ function validateForm(){
 
     
     var name = document.forms['myForm']["fname"].value;
-    if (name.length<5){
-        seterror("name", "*Length of name is too short");
-        returnval = false;
-    }
-
-    if (name.length == 0){
-        seterror("name", "*Length of name cannot be zero!");
+    if (!nameRegex(test(name)){
+        seterror("name", "*name is not valid");
         returnval = false;
     }
 
@@ -42,8 +39,8 @@ function validateForm(){
     }
 
     var phone = document.forms['myForm']["fphone"].value;
-    if (phone.length != 10){
-        seterror("phone", "*Phone number should be of 10 digits!");
+    if (!phoneRegex(phone)){
+        seterror("phone", "*Phone number not match!");
         returnval = false;
     }
 
