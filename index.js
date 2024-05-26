@@ -15,7 +15,11 @@ function seterror(id, error){
 
 }
 
+
+
 function validateForm(){
+    const emailRegex = /^[A-Za-z0-9 ]+@[a-zA-z]+.[a-zA-z]{2,3}$/;
+    const pwRegex = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/;
     var returnval = true;
     clearErrors();
 
@@ -32,8 +36,8 @@ function validateForm(){
     }
 
     var email = document.forms['myForm']["femail"].value;
-    if (email.length>15){
-        seterror("email", "*Email length is too long");
+    if (!emailRegex.test(email)){
+        seterror("email", "*Email not match");
         returnval = false;
     }
 
@@ -44,10 +48,10 @@ function validateForm(){
     }
 
     var password = document.forms['myForm']["fpass"].value;
-    if (password.length < 6){
+    if (!pwRegex.test(password)){
 
         
-        seterror("pass", "*Password should be atleast 6 characters long!");
+        seterror("pass", "*Password does not match!");
         returnval = false;
     }
 
