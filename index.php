@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>JavaScript Form Validation</title>
+    <title>JavaScript email Validation</title>
     <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
-    <h1>Welcome to the best form on Internet!</h1>
     <form aciton ="" name="myForm" onsubmit="return validateForm()" method="post">
         <div class="formdesign" id="name">
             Name: <input type="text" name="fname" required><b><span class="formerror"> </span></b>
